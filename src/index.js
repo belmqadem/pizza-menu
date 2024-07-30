@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom/client";
+import "./index.css";
 
 const pizzaData = [
   {
@@ -48,22 +49,84 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
-      <h1>Hello React</h1>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+    <div className="container">
+      <Header />
+      <Menu />
+      <Footer />
     </div>
   );
 }
 
-function Pizza() {
+function Header() {
   return (
-    <div>
-      <img src="pizzas/focaccia.jpg" alt="pizza focaccia"></img>
-      <h2>Pizza Focaccia</h2>
-      <p>Bread with italian olive oil and rosemary</p>
+    <header className="header">
+      <h1>Fast React Pizza Co.</h1>
+    </header>
+  );
+}
+
+function Menu() {
+  return (
+    <main className="menu">
+      <h2>Our menu</h2>
+      <div className="pizzas">
+        <Pizza
+          name="Pizza Focaccia"
+          ingredients="Bread with italian olive oil and rosemary"
+          imgSrc="pizzas/focaccia.jpg"
+          price={6}
+        />
+        <Pizza
+          name="Pizza Margherita"
+          ingredients="Tomato and mozarella"
+          imgSrc="pizzas/margherita.jpg"
+          price={10}
+        />
+        <Pizza
+          name="Pizza Spinaci"
+          ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+          imgSrc="pizzas/spinaci.jpg"
+          price={12}
+        />
+        <Pizza
+          name="Pizza Funghi"
+          ingredients="Tomato, mozarella, mushrooms, and onion"
+          imgSrc="pizzas/funghi.jpg"
+          price={12}
+        />
+        <Pizza
+          name="Pizza Salamino"
+          ingredients="Tomato, mozarella, and pepperoni"
+          imgSrc="pizzas/salamino.jpg"
+          price={15}
+        />
+        <Pizza
+          name="Pizza Prosciutto"
+          ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
+          imgSrc="pizzas/prosciutto.jpg"
+          price={18}
+        />
+      </div>
+    </main>
+  );
+}
+
+function Pizza(props) {
+  return (
+    <div className="pizza">
+      <img src={props.imgSrc} alt={props.name}></img>
+      <h3>{props.name}</h3>
+      <p>{props.ingredients}</p>
+      <span>{props.price}</span>
     </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      {new Date().toLocaleTimeString()}. We're currently open
+    </footer>
   );
 }
 
