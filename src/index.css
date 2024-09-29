@@ -114,6 +114,12 @@ body {
   width: 12rem;
   aspect-ratio: 1;
   align-self: start;
+  transition: all 0.2s;
+}
+
+.pizza img:hover {
+  filter: drop-shadow(0 0 0.2rem #000);
+  cursor: pointer;
 }
 
 .pizza div {
@@ -171,11 +177,13 @@ body {
   background-color: #edc84b;
   padding: 1.4rem 3.2rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all ease-in-out 0.4s;
+  border-radius: 25px;
 }
 
 .btn:hover {
   background-color: #e9bb24;
+  transform: scaleX(1.05);
 }
 
 /*
